@@ -3,9 +3,10 @@ import { CustomMDX } from "@/app/components/mdx";
 import { formatDate, getBlogPosts } from "@/app/blog/utils";
 import { baseUrl } from "@/app/sitemap";
 import Image from "next/image";
-import vx from "../../public/images/vx.png";
-import zfb from "../../public/images/zfb.png";
-import video from "../../public/images/video.png";
+import vx from "@/app/public/images/vx.png";
+import zfb from "@/app/public/images/zfb.png";
+import video from "@/app/public/images/video.png";
+import face from "@/app/public/images/face.png";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -94,6 +95,14 @@ export default function Blog({ params }: any) {
           {formatDate(post.metadata.publishedAt)}
         </p>
       </div>
+      <Image
+        src={face}
+        alt={"封面"}
+        width={800}
+        height={600}
+        quality={100}
+        className="rounded-lg shadow-lg dark:shadow-neutral-700/50"
+      />
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
@@ -110,27 +119,27 @@ export default function Blog({ params }: any) {
           className="rounded-lg shadow-lg dark:shadow-neutral-700/50"
         />
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          ⏳ 未完待续，最后一周录制结束。
+          ⏳ 未完待续。。。
         </p>
 
         <p className="text-lg text-black dark:text-white font-bold">
-          🌟 支付方式：
+          🌟 支付方式（备注手机号 😊）：
         </p>
         <p className="text-sm text-black dark:text-white">微信:</p>
         <Image
           src={vx}
           alt={"微信"}
-          width={300}
-          height={300}
+          width={250}
+          height={250}
           quality={100}
           className="rounded-lg shadow-lg dark:shadow-neutral-700/50"
         />
         <p className="text-sm text-black dark:text-white">支付宝：</p>
         <Image
           src={zfb}
-          alt={"微信"}
-          width={300}
-          height={300}
+          alt={"支付宝"}
+          width={250}
+          height={250}
           quality={100}
           className="rounded-lg shadow-lg dark:shadow-neutral-700/50"
         />

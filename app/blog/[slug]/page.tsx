@@ -16,8 +16,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: any) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export async function generateMetadata({ params }: any) {
+  const { slug } = await params;
+
+  let post = getBlogPosts().find((post) => post.slug === slug);
   if (!post) {
     return;
   }
@@ -56,8 +58,10 @@ export function generateMetadata({ params }: any) {
   };
 }
 
-export default function Blog({ params }: any) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export default async function Blog({ params }: any) {
+  const { slug } = await params;
+
+  let post = getBlogPosts().find((post) => post.slug === slug);
 
   if (!post) {
     notFound();
@@ -132,7 +136,7 @@ export default function Blog({ params }: any) {
           width={250}
           height={250}
           quality={100}
-          className="rounded-lg shadow-lg dark:shadow-neutral-700/50"
+          className="rounded-lg shadow-lg   dark:shadow-neutral-700/70"
         />
         <p className="text-sm text-black dark:text-white">支付宝：</p>
         <Image
@@ -141,7 +145,7 @@ export default function Blog({ params }: any) {
           width={250}
           height={250}
           quality={100}
-          className="rounded-lg shadow-lg dark:shadow-neutral-700/50"
+          className="rounded-lg shadow-lg    dark:shadow-neutral-700/70"
         />
       </div>
       <div className="mt-8">

@@ -111,20 +111,6 @@ export default async function Blog({ params }: any) {
         <CustomMDX source={post.content} />
       </article>
       <div className="mt-8 flex flex-col gap-4">
-        <p className="text-lg text-black dark:text-white font-bold">
-          📺 课程状态：
-        </p>
-        <Image
-          src={video}
-          alt={"视频"}
-          width={300}
-          height={300}
-          quality={100}
-          className="rounded-lg shadow-lg dark:shadow-neutral-700/50"
-        />
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          ⏳ 未完待续。。。
-        </p>
 
         <p className="text-lg text-black dark:text-white font-bold">
           🌟 支付方式（备注手机号 😊）：
